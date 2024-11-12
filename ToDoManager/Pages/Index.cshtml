@@ -1,0 +1,24 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Welcome";
+}
+<head>
+    <meta charset="UTF-8">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/css/welcome.css"> <!-- Используем ~ для указания пути к wwwroot -->
+</head>
+<div class="main-folder">
+    <div class="main-text">ToDoManager is a demonstration project called 'Case Organizer'. In it, you can create, edit, and delete tasks (cases). For those who are using this website in open access - a warning. The developer is not responsible for the content of the current cases. Please be aware that all created cases are visible to all users, so refrain from entering any personal data. I recommend that you review the privacy policy in more detail before using this website.</div>
+    <div class="main-bttns">
+        <div class="main-privacy">
+            <a href="/Privacy">Step 1: check Privacy</a>
+        </div>
+        <div class="main-addcase">
+            <a href="/AddCase">Step 2: Add Case</a>
+        </div>
+        <div class="main-mycases">
+            <a href="/MyCases">Step 3: See Cases</a>
+        </div>
+    </div>
+</div>

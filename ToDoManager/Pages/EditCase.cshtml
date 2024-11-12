@@ -1,0 +1,87 @@
+﻿@page
+@model ToDoManager.Pages.EditCaseModel
+@{
+    ViewData["Title"] = "Edit Case";
+}
+<head>
+    <meta charset="UTF-8">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/css/form.css"> <!-- Используем ~ для указания пути к wwwroot -->
+</head>
+<form method="post" asp-page-handler="EditCase" class="decor">
+    <div class="form-left-decoration"></div>
+    <div class="form-right-decoration"></div>
+    <div class="circle"></div>
+    <div class="form-inner">
+                <label for="caseName">Name:</label>
+                <input type="text" id="caseName" name="name" class="txtbox" value="@Model.currCase.getName()"><br><br>
+
+                <label for="caseDesc">Description:</label>
+                <textarea id="caseDesc" name="desc" class="txtbox">@Model.currCase.getDesc()</textarea>
+                <br><br>
+
+                <label for="caseStatus">Status:</label>
+                <select id="caseStatus" name="status" class="combobox">
+                    @for(int i = 0; i < Model.currCase.statusList.Length; i++)
+                    {
+                        <option value="@Model.currCase.statusList[i]" selected="@(Model.currCase.getStatus() == i ? "selected" : null)">
+                            @Model.currCase.statusList[i]
+                        </option>
+                    }
+                </select>
+
+
+        <button type="submit" class="btn btn-white btn-        animate">Change</button>
+
+                <!-- Кнопка "Удалить" -->
+        <button type="button" onclick="showDeleteModal()" class="btn btn-white btn-        animate">Delete</button>
+
+        <button type="button" onclick="closeModal()" class="btn btn-white btn-        animate">Cancel</button>
+            </div>
+        </form>
+
+        <!-- Модальное окно подтверждения -->
+        <div id="deleteModal" class="modal" style="display:none;">
+            <div class="modal-content">
+                <h4>Are you sure?</h4>
+                <form method="post" asp-page-handler="DeleteCase">
+                    <button type="submit" name="confirmDelete" value="yes">Yes</button>
+                    <button type="button" onclick="closeTab()">No</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Стили для модального окна -->
+        <style>
+            .modal {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.5);
+                display: none;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .modal-content {
+                background: white;
+                padding: 20px;
+                border-radius: 5px;
+            }
+        </style>
+
+        <!-- Скрипты для показа/закрытия модального окна -->
+        <script>
+            function showDeleteModal() {
+                document.getElementById('deleteModal').style.display = 'flex';
+            }
+
+            function closeTab() {
+                document.getElementById('deleteModal').style.display = 'none';
+            }
+            function closeModal() {
+                window.location.href = '/MyCases';  // Это приведет к редиректу на страницу Index
+            }
+        </script>

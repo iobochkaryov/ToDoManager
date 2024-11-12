@@ -1,0 +1,79 @@
+﻿/* Overall container */
+.main-folder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 500px;
+    padding: 20px;
+}
+
+/* Main text - centered, full-width with rounded corners */
+.main-text {
+    background-color: white;
+    border-radius: 50px;
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+    font-size: 2em;
+    font-family: Arial, sans-serif;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Button container - flexbox for alignment */
+.main-bttns {
+    display: flex;
+    width: 100%;
+    justify-content: space-between; /* Equal spacing between buttons */
+}
+
+/* Common button styles */
+.main-privacy, .main-addcase, .main-mycases {
+    background-color: white;
+    border-radius: 50px;
+    width: 30%; /* Each button takes 30% of the width */
+    text-align: center;
+    padding: 15px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+    .main-privacy a, .main-addcase a, .main-mycases a {
+        text-decoration: none;
+        color: inherit;
+        font-size: 1.2em;
+        font-family: Arial, sans-serif;
+        display: block;
+        text-align: center;
+    }
+
+/* Main Privacy Button */
+.main-privacy {
+    background-color: #ffea73;
+}
+
+    .main-privacy:hover {
+        background-color: #f0cd07; /* Lighter orange on hover */
+        transform: scale(1.05);
+    }
+
+/* Main AddCase Button */
+.main-addcase {
+    background-color: #28a745; /* Green */
+}
+
+    .main-addcase:hover {
+        background-color: #34b34a; /* Lighter green on hover */
+        transform: scale(1.05);
+    }
+
+/* Main MyCases Button */
+.main-mycases {
+    background-color: #17a2b8; /* Blue */
+}
+
+    .main-mycases:hover {
+        background-color: #1ec0e1; /* Lighter blue on hover */
+        transform: scale(1.05);
+    }

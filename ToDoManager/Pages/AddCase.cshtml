@@ -1,0 +1,41 @@
+﻿@page
+@model ToDoManager.Pages.AddCaseModel
+@{
+    ViewData["Title"] = "Add Case";
+}
+<head>
+    <meta charset="UTF-8">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/css/form.css"> <!-- Используем ~ для указания пути к wwwroot -->
+</head>
+<!-- Модальное окно с формой -->
+        <form method="post" asp-page-handler="CreateCase" class="decor">
+            <div class="form-left-decoration"></div>
+            <div class="form-right-decoration"></div>
+            <div class="circle"></div>  
+            <div class="form-inner">
+                <label for="caseName">Name:</label>
+                <input type="text" id="caseName" name="name" class="txtbox"><br><br>
+                <label for="caseDesc">Description:</label>
+                <textarea id="caseDesc" name="desc" class="txtbox"></textarea>
+                <br><br>
+
+                <label for="caseStatus">Status:</label>
+                <select id="caseStatus" name="status" class="combobox">
+                    @for (int i = 0; i < Model.c.statusList.Length; i++)
+                    {
+                        <option value="@Model.c.statusList[i]">
+                            @Model.c.statusList[i]
+                        </option>
+
+                    }
+                </select>
+                <button type="submit" class="btn btn-white btn-        animate">Create</button>
+                <button type="button" onclick="closeModal()" class="btn btn-white btn-        animate">Cancel</button>
+                <script>
+                    function closeModal() {
+                        window.location.href = '/MyCases';  // Это приведет к редиректу на страницу Index
+                    }
+                </script>
+            </div>
+        </form>

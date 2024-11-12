@@ -1,0 +1,78 @@
+﻿body {
+}
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+/* Стили для clickable-div */
+.clickable-div {
+    height: 160px;
+    width: 280px;
+    background-color: #fff;
+    border: 1px solid #ddd; /* Легкая граница */
+    border-radius: 50px; /* Скругленные углы */
+    padding: 10px 30px 20px 30px; /* Внутренние отступы */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Легкая тень */
+    transition: all 0.3s ease; /* Плавные переходы */
+    opacity: 0; /* Начальная прозрачность (невидимый) */
+    transform: translateY(20px); /* Элемент будет сдвигаться по оси Y */
+    animation: fadeInUp 0.6s ease-out forwards; /* Анимация появления */
+    animation-delay: 0.3s; /* Задержка перед запуском анимации (для последовательного появления) */
+    cursor: pointer;
+}
+
+/* Анимация появления элемента */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0; /* Элемент изначально невидим */
+        transform: translateY(20px); /* Сдвиг вниз */
+    }
+
+    100% {
+        opacity: 1; /* Элемент полностью видим */
+        transform: translateY(0); /* Элемент возвращается на свое место */
+    }
+}
+
+/* Эффект при наведении */
+.clickable-div:hover {
+    transform: scale(1.05); /* Увеличиваем элемент при наведении */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Более сильная тень */
+}
+
+/* Эффект при клике */
+.clickable-div:active {
+    transform: scale(0.98); /* Сжимаем элемент при клике */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Уменьшаем тень при клике */
+}
+
+
+.case_title {
+    font-size: 38px;
+    text-align: center;
+}
+
+.case_desc {
+    color: #0f0f0fe5;
+    font-size: 20px;
+    display: -webkit-box; /* Включаем флексбокс с поддержкой обрезки */
+    -webkit-box-orient: vertical; /* Устанавливаем вертикальную ориентацию */
+    -webkit-line-clamp: 3; /* Ограничиваем текст тремя строками */
+    overflow: hidden; /* Скрываем текст, выходящий за пределы */
+    text-overflow: ellipsis; /* Добавляем троеточие на последней строке */
+}
+
+.CasesContainer {
+    display: flex; /* Используем flexbox для расположения элементов */
+    flex-wrap: wrap; /* Разрешаем перенос элементов на новую строку, если не хватает места */
+    gap: 20px; /* Отступы между элементами */
+    justify-content: flex-start; /* Размещение элементов по левому краю */
+}
+
+.txtbox {
+    width: 100%;
+}
+
+/* Специальный стиль для элемента с ID #username-input */
+#caseDesc {
+    height: 200px;
+}

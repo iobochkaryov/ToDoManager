@@ -1,0 +1,20 @@
+﻿@page
+@model ToDoManager.Pages.MyCasesModel
+@{
+    ViewData["Title"] = "My Cases";
+}
+<head>
+    <meta charset="UTF-8">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/css/main.css"> <!-- Используем ~ для указания пути к wwwroot -->
+</head>
+
+
+<form asp-page-handler="StatusClicked" method="post">
+    @foreach (var caseDivHtml in Model.CaseDivs)
+    {
+        @Html.Raw(caseDivHtml)
+        var requestVerificationToken = Html.AntiForgeryToken();
+
+    }
+</form>
