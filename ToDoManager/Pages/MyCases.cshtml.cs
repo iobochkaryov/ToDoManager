@@ -52,10 +52,16 @@ namespace ToDoManager.Pages
                 var desc = new TagBuilder("h4");
                 desc.AddCssClass("case_desc");
                 desc.InnerHtml.Append(@case.getDesc());
+                //*****************************Test Tags**********************************
+                var tags = new TagBuilder("h4");
+                tags.AddCssClass("case_desc");
+                tags.Attributes["style"] = "color:" + @case.getTags().Color;
+                tags.InnerHtml.Append(@case.getTags().Name);
 
                 // ¬кладываем заголовок и описание в кликабельный div
                 caseDiv.InnerHtml.AppendHtml(title);
                 caseDiv.InnerHtml.AppendHtml(desc);
+                caseDiv.InnerHtml.AppendHtml(tags);
                 //
                 CasesContainer.InnerHtml.AppendHtml(caseDiv);
                 id++;

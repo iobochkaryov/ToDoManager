@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Diagnostics;
 using ToDoManager.Classes;
 
 namespace ToDoManager.Pages
@@ -16,9 +17,10 @@ namespace ToDoManager.Pages
             _logger = logger;
         }
 
-        public IActionResult OnPostCreateCase(string name, string desc, string status)
+        public IActionResult OnPostCreateCase(string name, string desc, string status, string tag, string tagcolor) //**************************** Only 1 tag, fix ***********************
         {
-            c = new Case(name, desc, status);
+            TagsList tgs = new TagsList(new Tag(tag, tagcolor));
+            c = new Case(name, desc, status,tgs);
             CasesList.Cases.Add(c);
             return RedirectToPage("MyCases");
         }
