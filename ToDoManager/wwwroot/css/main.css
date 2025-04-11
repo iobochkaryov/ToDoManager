@@ -18,6 +18,7 @@
     animation: fadeInUp 0.6s ease-out forwards; /* Анимация появления */
     animation-delay: 0.3s; /* Задержка перед запуском анимации (для последовательного появления) */
     cursor: pointer;
+    position: relative; /* Устанавливаем относительное позиционирование для главного тега ТЕСТ*/
 }
 
 /* Анимация появления элемента */
@@ -60,6 +61,31 @@
     overflow: hidden; /* Скрываем текст, выходящий за пределы */
     text-overflow: ellipsis; /* Добавляем троеточие на последней строке */
 }
+.case_tag {
+    position: absolute; /* Позиционируем относительно родителя */
+    bottom: -10px; /* Часть тега будет выходить за пределы главного дива */
+    left: 20%; /* Центрируем по горизонтали относительно родителя */
+    transform: translateX(-50%); /* Исправляем смещение при центровке */
+    background-color: #ffcc00; /* Цвет фона для наглядности */
+    border-radius: 50px; /* Скругленные углы (по желанию) */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Тень (по желанию) */
+    width: 90px;
+    height: 40px;
+    border-radius: 50px;
+    text-align: center; /* Центрируем текст по горизонтали */
+}
+    .case_tag h4 {
+        margin: 0; /* Убираем внешние отступы */
+        line-height: 2.6; /* Задаем высоту строки для красоты */
+        font-size: 14px;
+        white-space: nowrap; /* Запрещаем перенос текста */
+        overflow: hidden; /* Скрываем выходящий за пределы текст */
+        text-overflow: ellipsis; /* Добавляем многоточие */
+        max-width: 90px; /* Устанавливаем максимальную ширину строки */
+        font-weight: bold;
+    }
+
+
 
 .CasesContainer {
     display: flex; /* Используем flexbox для расположения элементов */

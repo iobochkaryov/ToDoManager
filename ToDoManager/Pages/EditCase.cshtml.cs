@@ -27,9 +27,10 @@ namespace ToDoManager.Pages
             // ≈сли пользователь нажал "Ќет", закрываем модальное окно и остаемс€ на текущей странице
             return Page();
         }
-        public IActionResult OnPostEditCase(string name, string desc, string status)
+        public IActionResult OnPostEditCase(string name, string desc, string status, string tag, string tagColor)
         {
-            CasesList.Cases[CasesList.currentCase] = new Case(name, desc, status);
+            Tag tag1 = new Tag(tag, tagColor);
+            CasesList.Cases[CasesList.currentCase] = new Case(name, desc, status, new TagsList(tag1));
             return RedirectToPage("MyCases");
         }
     }
